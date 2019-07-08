@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
 import App from './App';
 import Main from './modules/dashboard/components/Main';
-import * as serviceWorker from './serviceWorker';
 
 const routing = (
     <Router>
@@ -25,4 +23,3 @@ const routing = (
 
 ReactDOM.render(routing, document.getElementById('root'));
 
-serviceWorker.unregister();
