@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
+import App from './App';
+import Main from './modules/dashboard/components/Main';
+import * as serviceWorker from './serviceWorker';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+const routing = (
+    <Router>
+        <div>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/main">Main</Link>
+                </li>
+            </ul>
+            <Route path="/" component={App}/>
+            <Route path="/main" component={Main}/>
+        </div>
+    </Router>
+);
 
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
-  }
-}
+ReactDOM.render(routing, document.getElementById('root'));
 
-render(<App />, document.getElementById('root'));
+serviceWorker.unregister();
